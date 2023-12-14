@@ -1,0 +1,72 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+api_login_check:
+    path: /api/luser/login_check
+
+app_restaurant:
+    path: /api/restaurant
+    controller: App\Controller\RestaurantController::index
+    methods: [GET]
+
+api_restaurant_id:
+    path: /api/restaurant/{id}
+    controller: 'App\Controller\RestaurantController::getRestaurant'
+    methods: ['GET']
+    requirements:
+        id: '\d+'  # Ensure id is a digit (integer)
+
+api_restaurants_list:
+    path: /api/restaurants
+    controller: App\Controller\RestaurantController::getAllRestaurants
+    methods: [GET]
+
+api_restaurant_show:
+    path: /api/restaurant/{id}/menus
+    controller: App\Controller\RestaurantController::getRestaurantMenus
+    methods: [GET]
+
+api_restaurant_create:
+    path: /api/restaurant
+    controller: App\Controller\RestaurantController::createRestaurant
+    methods: [POST]
+
+api_restaurant_update:
+    path: /api/restaurant/{id}
+    controller: App\Controller\RestaurantController::updateRestaurant
+    methods: [PUT]
+
+api_restaurant_delete:
+    path: /api/restaurant/{id}
+    controller: App\Controller\RestaurantController::deleteRestaurant
+    methods: [DELETE]
+    
+api_create_menu:
+    path: /api/restaurant/menu
+    controller: App\Controller\MenuController::createMenu
+    methods: [POST]
+
+api_get_menus_by_restaurant:
+    path: /api/restaurant/{restaurantId}/menu
+    controller: App\Controller\MenuController::getMenusByRestaurant
+    methods: [GET]
+
+api_search_restaurants:
+    path: /api/restaurant/search
+    controller: App\Controller\RestaurantController::searchRestaurants
+    methods: [GET]
+
+api_create_reservation:
+    path: /api/reservation/create/{restaurantId}
+    controller: App\Controller\ReservationController::makeReservation
+    methods: [POST]
+
+api_create_user:
+    path: /api/user/create
+    controller: App\Controller\UserController::createUser
+    methods: [POST]
+
+api_user_login:
+    path: /api/user/login
+    controller: App\Controller\UserController::loginUser
+    methods: [POST]
